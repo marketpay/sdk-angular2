@@ -641,40 +641,6 @@ export interface BankAccountUsPost {
 }
 
 export type BankAccountUsPostDepositAccountTypeEnum = "NotSpecified" | "CHECKING" | "SAVINGS";
-export interface BankwirePayInPayInPost {
-    "tag"?: string;
-    "creditedWalletId": string;
-    "debitedFunds": Money;
-    "fees": Money;
-}
-
-export interface BankwirePayInPayInResponse {
-    "debitedFunds"?: Money;
-    "creditedFunds"?: Money;
-    "fees"?: Money;
-    "creditedWalletId"?: string;
-    "nature"?: BankwirePayInPayInResponseNatureEnum;
-    "status"?: BankwirePayInPayInResponseStatusEnum;
-    "executionDate"?: number;
-    "resultCode"?: string;
-    "resultMessage"?: string;
-    "type"?: BankwirePayInPayInResponseTypeEnum;
-    "paymentType"?: BankwirePayInPayInResponsePaymentTypeEnum;
-    "executionType"?: BankwirePayInPayInResponseExecutionTypeEnum;
-    "authorId"?: string;
-    "creditedUserId"?: string;
-    "wireReference"?: string;
-    "bankAccount"?: BankAccountType;
-    "id"?: string;
-    "creationDate"?: number;
-    "tag"?: string;
-}
-
-export type BankwirePayInPayInResponseNatureEnum = "REGULAR" | "REFUND" | "REPUDIATION" | "SETTLEMENT";
-export type BankwirePayInPayInResponseStatusEnum = "CREATED" | "SUCCEEDED" | "FAILED";
-export type BankwirePayInPayInResponseTypeEnum = "PAYIN" | "PAYOUT" | "TRANSFER";
-export type BankwirePayInPayInResponsePaymentTypeEnum = "NotSpecified" | "CARD" | "BANK_WIRE" | "DIRECT_DEBIT" | "PREAUTHORIZED";
-export type BankwirePayInPayInResponseExecutionTypeEnum = "NotSpecified" | "WEB" | "DIRECT";
 export interface CardPut {
     /**
      * Whether the card is active or not
@@ -773,7 +739,41 @@ export interface Money {
 }
 
 export type MoneyCurrencyEnum = "NotSpecified" | "XXX" | "AED" | "AFN" | "ALL" | "AMD" | "ANG" | "AOA" | "ARS" | "AUD" | "AWG" | "AZN" | "BAM" | "BBD" | "BDT" | "BGN" | "BHD" | "BIF" | "BMD" | "BND" | "BOB" | "BOV" | "BRL" | "BSD" | "BTN" | "BWP" | "BYR" | "BZD" | "CAD" | "CDF" | "CHE" | "CHF" | "CHW" | "CLF" | "CLP" | "CNY" | "COP" | "COU" | "CRC" | "CUC" | "CUP" | "CVE" | "CZK" | "DJF" | "DKK" | "DOP" | "DZD" | "EGP" | "ERN" | "ETB" | "EUR" | "FJD" | "FKP" | "GBP" | "GEL" | "GHS" | "GIP" | "GMD" | "GNF" | "GTQ" | "GYD" | "HKD" | "HNL" | "HRK" | "HTG" | "HUF" | "IDR" | "ILS" | "INR" | "IQD" | "IRR" | "ISK" | "JMD" | "JOD" | "JPY" | "KES" | "KGS" | "KHR" | "KMF" | "KPW" | "KRW" | "KWD" | "KYD" | "KZT" | "LAK" | "LBP" | "LKR" | "LRD" | "LSL" | "LTL" | "LYD" | "MAD" | "MDL" | "MGA" | "MKD" | "MMK" | "MNT" | "MOP" | "MRO" | "MUR" | "MVR" | "MWK" | "MXN" | "MXV" | "MYR" | "MZN" | "NAD" | "NGN" | "NIO" | "NOK" | "NPR" | "NZD" | "OMR" | "PAB" | "PEN" | "PGK" | "PHP" | "PKR" | "PLN" | "PYG" | "QAR" | "RON" | "RSD" | "RUB" | "RWF" | "SAR" | "SBD" | "SCR" | "SDG" | "SEK" | "SGD" | "SHP" | "SLL" | "SOS" | "SRD" | "SSP" | "STD" | "SYP" | "SZL" | "THB" | "TJS" | "TMT" | "TND" | "TOP" | "TRY" | "TTD" | "TWD" | "TZS" | "UAH" | "UGX" | "USD" | "USN" | "USS" | "UYI" | "UYU" | "UZS" | "VEF" | "VND" | "VUV" | "WST" | "XAF" | "XAG" | "XAU" | "XBA" | "XBB" | "XBC" | "XBD" | "XBT" | "XCD" | "XDR" | "XFU" | "XOF" | "XPD" | "XPF" | "XPT" | "XSU" | "XTS" | "XUA" | "YER" | "ZAR" | "ZMW" | "ZWD";
-export interface PayOutBankWirePost {
+export interface PayInBankwirePost {
+    "tag"?: string;
+    "creditedWalletId": string;
+    "debitedFunds": Money;
+    "fees": Money;
+}
+
+export interface PayInBankwireResponse {
+    "debitedFunds"?: Money;
+    "creditedFunds"?: Money;
+    "fees"?: Money;
+    "creditedWalletId"?: string;
+    "nature"?: PayInBankwireResponseNatureEnum;
+    "status"?: PayInBankwireResponseStatusEnum;
+    "executionDate"?: number;
+    "resultCode"?: string;
+    "resultMessage"?: string;
+    "type"?: PayInBankwireResponseTypeEnum;
+    "paymentType"?: PayInBankwireResponsePaymentTypeEnum;
+    "executionType"?: PayInBankwireResponseExecutionTypeEnum;
+    "authorId"?: string;
+    "creditedUserId"?: string;
+    "wireReference"?: string;
+    "bankAccount"?: BankAccountType;
+    "id"?: string;
+    "creationDate"?: number;
+    "tag"?: string;
+}
+
+export type PayInBankwireResponseNatureEnum = "REGULAR" | "REFUND" | "REPUDIATION" | "SETTLEMENT";
+export type PayInBankwireResponseStatusEnum = "CREATED" | "SUCCEEDED" | "FAILED";
+export type PayInBankwireResponseTypeEnum = "PAYIN" | "PAYOUT" | "TRANSFER";
+export type PayInBankwireResponsePaymentTypeEnum = "NotSpecified" | "CARD" | "BANK_WIRE" | "DIRECT_DEBIT" | "PREAUTHORIZED";
+export type PayInBankwireResponseExecutionTypeEnum = "NotSpecified" | "WEB" | "DIRECT";
+export interface PayOutBankwirePost {
     "tag"?: string;
     "debitedFunds"?: Money;
     "fees"?: Money;
@@ -782,21 +782,21 @@ export interface PayOutBankWirePost {
     "bankWireRef"?: string;
 }
 
-export interface PayOutBankWireResponse {
+export interface PayOutBankwireResponse {
     "authorId"?: string;
     "creditedUserId"?: string;
     "debitedFunds"?: Money;
     "creditedFunds"?: Money;
     "fees"?: Money;
-    "status"?: PayOutBankWireResponseStatusEnum;
+    "status"?: PayOutBankwireResponseStatusEnum;
     "resultCode"?: string;
     "resultMessage"?: string;
     "executionDate"?: number;
-    "type"?: PayOutBankWireResponseTypeEnum;
-    "nature"?: PayOutBankWireResponseNatureEnum;
+    "type"?: PayOutBankwireResponseTypeEnum;
+    "nature"?: PayOutBankwireResponseNatureEnum;
     "debitedWalletId"?: string;
     "creditedWalletId"?: string;
-    "paymentType"?: PayOutBankWireResponsePaymentTypeEnum;
+    "paymentType"?: PayOutBankwireResponsePaymentTypeEnum;
     "bankAccountId"?: string;
     "bankWireRef"?: string;
     "id"?: string;
@@ -804,10 +804,10 @@ export interface PayOutBankWireResponse {
     "tag"?: string;
 }
 
-export type PayOutBankWireResponseStatusEnum = "CREATED" | "SUCCEEDED" | "FAILED";
-export type PayOutBankWireResponseTypeEnum = "PAYIN" | "PAYOUT" | "TRANSFER";
-export type PayOutBankWireResponseNatureEnum = "REGULAR" | "REFUND" | "REPUDIATION" | "SETTLEMENT";
-export type PayOutBankWireResponsePaymentTypeEnum = "NotSpecified" | "BANK_WIRE";
+export type PayOutBankwireResponseStatusEnum = "CREATED" | "SUCCEEDED" | "FAILED";
+export type PayOutBankwireResponseTypeEnum = "PAYIN" | "PAYOUT" | "TRANSFER";
+export type PayOutBankwireResponseNatureEnum = "REGULAR" | "REFUND" | "REPUDIATION" | "SETTLEMENT";
+export type PayOutBankwireResponsePaymentTypeEnum = "NotSpecified" | "BANK_WIRE";
 export interface PaymentRedsysData {
     "dsOrder"?: string;
     "dsAuthorisationCode"?: string;
@@ -1636,7 +1636,7 @@ export interface UniversalPayRefundPost {
     /**
      * Information about the funds that are being debited
      */
-    "debitedFunds"?: Money;
+    "debitedFunds": Money;
     /**
      * Information about the fees that were taken by the client for this transaction (and were hence transferred to the Client's platform wallet)
      */
@@ -2597,7 +2597,7 @@ export const PayInsBankwireApiFetchParamCreator = {
     /** 
      * @param bankwirePayIn 
      */
-    payInsBankwireBankwirePaymentByDirect(params: {  "bankwirePayIn"?: BankwirePayInPayInPost; }, options?: any): FetchArgs {
+    payInsBankwireBankwirePaymentByDirect(params: {  "bankwirePayIn"?: PayInBankwirePost; }, options?: any): FetchArgs {
         const baseUrl = `/v2.01/PayInsBankwire/payments/direct`;
         let urlObj = url.parse(baseUrl, true);
         let fetchOptions: RequestInit = assign({}, { method: "POST" }, options);
@@ -2624,7 +2624,7 @@ export const PayInsBankwireApiFp = {
     /** 
      * @param payInId 
      */
-    payInsBankwireBankwireGetPayment(params: { "payInId": number;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<BankwirePayInPayInResponse> {
+    payInsBankwireBankwireGetPayment(params: { "payInId": number;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<PayInBankwireResponse> {
         const fetchArgs = PayInsBankwireApiFetchParamCreator.payInsBankwireBankwireGetPayment(params, options);
         return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
             return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
@@ -2639,7 +2639,7 @@ export const PayInsBankwireApiFp = {
     /** 
      * @param bankwirePayIn 
      */
-    payInsBankwireBankwirePaymentByDirect(params: { "bankwirePayIn"?: BankwirePayInPayInPost;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<BankwirePayInPayInResponse> {
+    payInsBankwireBankwirePaymentByDirect(params: { "bankwirePayIn"?: PayInBankwirePost;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<PayInBankwireResponse> {
         const fetchArgs = PayInsBankwireApiFetchParamCreator.payInsBankwireBankwirePaymentByDirect(params, options);
         return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
             return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
@@ -2666,7 +2666,7 @@ export class PayInsBankwireApi extends BaseAPI {
     /** 
      * @param bankwirePayIn 
      */
-    payInsBankwireBankwirePaymentByDirect(params: {  "bankwirePayIn"?: BankwirePayInPayInPost; }, options?: any) {
+    payInsBankwireBankwirePaymentByDirect(params: {  "bankwirePayIn"?: PayInBankwirePost; }, options?: any) {
         return PayInsBankwireApiFp.payInsBankwireBankwirePaymentByDirect(params, options)(this.fetch, this.basePath);
     }
 };
@@ -2685,7 +2685,7 @@ export const PayInsBankwireApiFactory = function (fetch?: FetchAPI, basePath?: s
         /** 
          * @param bankwirePayIn 
          */
-        payInsBankwireBankwirePaymentByDirect(params: {  "bankwirePayIn"?: BankwirePayInPayInPost; }, options?: any) {
+        payInsBankwireBankwirePaymentByDirect(params: {  "bankwirePayIn"?: PayInBankwirePost; }, options?: any) {
             return PayInsBankwireApiFp.payInsBankwireBankwirePaymentByDirect(params, options)(fetch, basePath);
         },
     };
@@ -3443,20 +3443,24 @@ export const PayInsUniversalPayApiFactory = function (fetch?: FetchAPI, basePath
 
 
 /**
- * PayOutsApi - fetch parameter creator
+ * PayOutsBankwireApi - fetch parameter creator
  */
-export const PayOutsApiFetchParamCreator = {
+export const PayOutsBankwireApiFetchParamCreator = {
     /** 
-     * SwaggerDocSummary
-     * SwaggerDocDescription
-     * @param id SwaggerDocParameter
+     * @param payInId 
+     * @param id 
      */
-    payOutsGet(params: {  "id": number; }, options?: any): FetchArgs {
+    payOutsBankwireGet(params: {  "payInId": number; "id": string; }, options?: any): FetchArgs {
+        // verify required parameter "payInId" is set
+        if (params["payInId"] == null) {
+            throw new Error("Missing required parameter payInId when calling payOutsBankwireGet");
+        }
         // verify required parameter "id" is set
         if (params["id"] == null) {
-            throw new Error("Missing required parameter id when calling payOutsGet");
+            throw new Error("Missing required parameter id when calling payOutsBankwireGet");
         }
-        const baseUrl = `/v2.01/PayOuts/bankwire/{id}`
+        const baseUrl = `/v2.01/PayOutsBankwire/bankwire/{id}`
+            .replace(`{${"PayInId"}}`, `${ params["payInId"] }`)
             .replace(`{${"id"}}`, `${ params["id"] }`);
         let urlObj = url.parse(baseUrl, true);
         let fetchOptions: RequestInit = assign({}, { method: "GET" }, options);
@@ -3471,19 +3475,17 @@ export const PayOutsApiFetchParamCreator = {
         };
     },
     /** 
-     * SwaggerDocSummary
-     * SwaggerDocDescription
-     * @param request SwaggerDocParameter
+     * @param bankwirePayIn 
      */
-    payOutsPost(params: {  "request"?: PayOutBankWirePost; }, options?: any): FetchArgs {
-        const baseUrl = `/v2.01/PayOuts/bankwire`;
+    payOutsBankwirePost(params: {  "bankwirePayIn"?: PayOutBankwirePost; }, options?: any): FetchArgs {
+        const baseUrl = `/v2.01/PayOutsBankwire/bankwire`;
         let urlObj = url.parse(baseUrl, true);
         let fetchOptions: RequestInit = assign({}, { method: "POST" }, options);
 
         let contentTypeHeader: Dictionary<string> = {};
         contentTypeHeader = { "Content-Type": "application/json" };
-        if (params["request"]) {
-            fetchOptions.body = JSON.stringify(params["request"] || {});
+        if (params["bankwirePayIn"]) {
+            fetchOptions.body = JSON.stringify(params["bankwirePayIn"] || {});
         }
         if (contentTypeHeader) {
             fetchOptions.headers = contentTypeHeader;
@@ -3496,16 +3498,15 @@ export const PayOutsApiFetchParamCreator = {
 };
 
 /**
- * PayOutsApi - functional programming interface
+ * PayOutsBankwireApi - functional programming interface
  */
-export const PayOutsApiFp = {
+export const PayOutsBankwireApiFp = {
     /** 
-     * SwaggerDocSummary
-     * SwaggerDocDescription
-     * @param id SwaggerDocParameter
+     * @param payInId 
+     * @param id 
      */
-    payOutsGet(params: { "id": number;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<PayOutBankWireResponse> {
-        const fetchArgs = PayOutsApiFetchParamCreator.payOutsGet(params, options);
+    payOutsBankwireGet(params: { "payInId": number; "id": string;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<PayOutBankwireResponse> {
+        const fetchArgs = PayOutsBankwireApiFetchParamCreator.payOutsBankwireGet(params, options);
         return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
             return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -3517,12 +3518,10 @@ export const PayOutsApiFp = {
         };
     },
     /** 
-     * SwaggerDocSummary
-     * SwaggerDocDescription
-     * @param request SwaggerDocParameter
+     * @param bankwirePayIn 
      */
-    payOutsPost(params: { "request"?: PayOutBankWirePost;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<PayOutBankWireResponse> {
-        const fetchArgs = PayOutsApiFetchParamCreator.payOutsPost(params, options);
+    payOutsBankwirePost(params: { "bankwirePayIn"?: PayOutBankwirePost;  }, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<PayOutBankwireResponse> {
+        const fetchArgs = PayOutsBankwireApiFetchParamCreator.payOutsBankwirePost(params, options);
         return (fetch: FetchAPI = isomorphicFetch, basePath: string = BASE_PATH) => {
             return fetch(basePath + fetchArgs.url, fetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -3536,47 +3535,41 @@ export const PayOutsApiFp = {
 };
 
 /**
- * PayOutsApi - object-oriented interface
+ * PayOutsBankwireApi - object-oriented interface
  */
-export class PayOutsApi extends BaseAPI {
+export class PayOutsBankwireApi extends BaseAPI {
     /** 
-     * SwaggerDocSummary
-     * SwaggerDocDescription
-     * @param id SwaggerDocParameter
+     * @param payInId 
+     * @param id 
      */
-    payOutsGet(params: {  "id": number; }, options?: any) {
-        return PayOutsApiFp.payOutsGet(params, options)(this.fetch, this.basePath);
+    payOutsBankwireGet(params: {  "payInId": number; "id": string; }, options?: any) {
+        return PayOutsBankwireApiFp.payOutsBankwireGet(params, options)(this.fetch, this.basePath);
     }
     /** 
-     * SwaggerDocSummary
-     * SwaggerDocDescription
-     * @param request SwaggerDocParameter
+     * @param bankwirePayIn 
      */
-    payOutsPost(params: {  "request"?: PayOutBankWirePost; }, options?: any) {
-        return PayOutsApiFp.payOutsPost(params, options)(this.fetch, this.basePath);
+    payOutsBankwirePost(params: {  "bankwirePayIn"?: PayOutBankwirePost; }, options?: any) {
+        return PayOutsBankwireApiFp.payOutsBankwirePost(params, options)(this.fetch, this.basePath);
     }
 };
 
 /**
- * PayOutsApi - factory interface
+ * PayOutsBankwireApi - factory interface
  */
-export const PayOutsApiFactory = function (fetch?: FetchAPI, basePath?: string) {
+export const PayOutsBankwireApiFactory = function (fetch?: FetchAPI, basePath?: string) {
     return {
         /** 
-         * SwaggerDocSummary
-         * SwaggerDocDescription
-         * @param id SwaggerDocParameter
+         * @param payInId 
+         * @param id 
          */
-        payOutsGet(params: {  "id": number; }, options?: any) {
-            return PayOutsApiFp.payOutsGet(params, options)(fetch, basePath);
+        payOutsBankwireGet(params: {  "payInId": number; "id": string; }, options?: any) {
+            return PayOutsBankwireApiFp.payOutsBankwireGet(params, options)(fetch, basePath);
         },
         /** 
-         * SwaggerDocSummary
-         * SwaggerDocDescription
-         * @param request SwaggerDocParameter
+         * @param bankwirePayIn 
          */
-        payOutsPost(params: {  "request"?: PayOutBankWirePost; }, options?: any) {
-            return PayOutsApiFp.payOutsPost(params, options)(fetch, basePath);
+        payOutsBankwirePost(params: {  "bankwirePayIn"?: PayOutBankwirePost; }, options?: any) {
+            return PayOutsBankwireApiFp.payOutsBankwirePost(params, options)(fetch, basePath);
         },
     };
 };
