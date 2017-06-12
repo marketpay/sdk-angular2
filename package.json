@@ -1,6 +1,6 @@
 {
   "name": "marketpay-sdk-angular2",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "license": "Unlicense",
   "main": "./dist/index.js",
   "browser": "./dist/index.js",
